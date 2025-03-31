@@ -91,11 +91,6 @@ section {
     flex: 1;
 }
 
-/* About Us Section */
-.about-us {
-    text-align: center;
-}
-
 /* Reverse Flex Styles */
 .reverse {
     flex-direction: row-reverse;
@@ -199,7 +194,6 @@ form button:hover {
 
 .footer-dev {
     text-align: right; /* Align the lower text to the right */
-    color: white; /* Ensure text in this section is white */
 }
 
 /* Disclaimer Section */
@@ -251,4 +245,39 @@ form button:hover {
 
 .disclaimer-container p {
     text-align: justify;
+}
+
+/* Media Queries for Responsive Design */
+@media only screen and (max-width: 768px) {
+    main {
+        width: 90%; /* Adjust main width for mobile */
+    }
+    
+    .profile {
+        flex-direction: column; /* Stack elements on mobile */
+        align-items: center; /* Centering */
+    }
+
+    .profile img {
+        width: 100px; /* Responsive image size */
+        height: auto;
+    }
+
+    .description {
+        text-align: center; /* Center text on small screens */
+    }
+
+    nav ul {
+        flex-direction: column; /* Stack navigation links */
+        align-items: center; /* Center navigation items */
+    }
+
+    nav ul li {
+        margin: 10px 0; /* Increased space between items */
+        text-align: center;
+    }
+
+    .expertise-grid {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); /* Smaller expertise items */
+    }
 }
