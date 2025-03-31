@@ -13,13 +13,14 @@ header {
     padding: 20px;
     display: flex;
     align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
 }
 
 /* Logo Section */
 .logo-container {
     display: flex;
     align-items: center;
-    margin-right: 20px;
 }
 
 .logo {
@@ -37,12 +38,16 @@ header {
 /* Navigation */
 nav {
     flex-grow: 1;
+    display: flex;
+    justify-content: center;
 }
 
 nav ul {
     list-style: none;
     padding: 0;
     display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 nav ul li {
@@ -53,6 +58,7 @@ nav ul li a {
     color: #fff;
     text-decoration: none;
     font-weight: bold;
+    white-space: nowrap;
 }
 
 nav ul li a:hover {
@@ -89,11 +95,6 @@ section {
 
 .description {
     flex: 1;
-}
-
-/* Reverse Flex Styles */
-.reverse {
-    flex-direction: row-reverse;
 }
 
 /* Headings */
@@ -179,21 +180,18 @@ form button:hover {
 
 /* Footer */
 .footer {
-    display: flex; /* Use flexbox layout */
-    justify-content: space-between; /* Space between elements */
-    align-items: center; /* Align items vertically */
-    padding: 10px 20px; /* Add some padding */
-    background-color: #f4f4f7; /* Light background for the footer */
-    color: white; /* Change text color to white */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #f4f4f7;
+    color: white;
+    text-align: center;
 }
 
 .footer-content, .footer-dev {
-    flex: 1; /* Allow both sections to grow equally */
-    color: white; /* Change text color to white */
-}
-
-.footer-dev {
-    text-align: right; /* Align the lower text to the right */
+    flex: 1;
+    color: white;
 }
 
 /* Disclaimer Section */
@@ -226,58 +224,42 @@ form button:hover {
     background-color: #555;
 }
 
-/* Disclaimer Container as a Modal */
-.disclaimer-container {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: white;
-    padding: 20px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-    z-index: 1000;
-    display: none; /* Hidden by default */
-}
-
-.disclaimer-container h2 {
-    text-align: center;
-}
-
-.disclaimer-container p {
-    text-align: justify;
-}
-
 /* Media Queries for Responsive Design */
 @media only screen and (max-width: 768px) {
     main {
-        width: 90%; /* Adjust main width for mobile */
+        width: 90%;
     }
     
     .profile {
-        flex-direction: column; /* Stack elements on mobile */
-        align-items: center; /* Centering */
+        flex-direction: column;
+        align-items: center;
     }
 
     .profile img {
-        width: 100px; /* Responsive image size */
+        width: 100px;
         height: auto;
     }
 
     .description {
-        text-align: center; /* Center text on small screens */
+        text-align: center;
+    }
+
+    nav {
+        flex-direction: column;
+        align-items: center;
     }
 
     nav ul {
-        flex-direction: column; /* Stack navigation links */
-        align-items: center; /* Center navigation items */
+        flex-direction: column;
+        align-items: center;
     }
 
     nav ul li {
-        margin: 10px 0; /* Increased space between items */
+        margin: 10px 0;
         text-align: center;
     }
 
     .expertise-grid {
-        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); /* Smaller expertise items */
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
     }
 }
