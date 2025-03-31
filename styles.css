@@ -13,14 +13,13 @@ header {
     padding: 20px;
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    flex-wrap: wrap;
 }
 
 /* Logo Section */
 .logo-container {
     display: flex;
     align-items: center;
+    margin-right: 20px;
 }
 
 .logo {
@@ -38,16 +37,12 @@ header {
 /* Navigation */
 nav {
     flex-grow: 1;
-    display: flex;
-    justify-content: center;
 }
 
 nav ul {
     list-style: none;
     padding: 0;
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
 }
 
 nav ul li {
@@ -58,7 +53,6 @@ nav ul li a {
     color: #fff;
     text-decoration: none;
     font-weight: bold;
-    white-space: nowrap;
 }
 
 nav ul li a:hover {
@@ -95,6 +89,16 @@ section {
 
 .description {
     flex: 1;
+}
+
+/* About Us Section */
+.about-us {
+    text-align: center;
+}
+
+/* Reverse Flex Styles */
+.reverse {
+    flex-direction: row-reverse;
 }
 
 /* Headings */
@@ -180,18 +184,22 @@ form button:hover {
 
 /* Footer */
 .footer {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 10px 20px;
-    background-color: #f4f4f7;
-    color: white;
-    text-align: center;
+    display: flex; /* Use flexbox layout */
+    justify-content: space-between; /* Space between elements */
+    align-items: center; /* Align items vertically */
+    padding: 10px 20px; /* Add some padding */
+    background-color: #f4f4f7; /* Light background for the footer */
+    color: white; /* Change text color to white */
 }
 
 .footer-content, .footer-dev {
-    flex: 1;
-    color: white;
+    flex: 1; /* Allow both sections to grow equally */
+    color: white; /* Change text color to white */
+}
+
+.footer-dev {
+    text-align: right; /* Align the lower text to the right */
+    color: white; /* Ensure text in this section is white */
 }
 
 /* Disclaimer Section */
@@ -224,42 +232,23 @@ form button:hover {
     background-color: #555;
 }
 
-/* Media Queries for Responsive Design */
-@media only screen and (max-width: 768px) {
-    main {
-        width: 90%;
-    }
-    
-    .profile {
-        flex-direction: column;
-        align-items: center;
-    }
+/* Disclaimer Container as a Modal */
+.disclaimer-container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    display: none; /* Hidden by default */
+}
 
-    .profile img {
-        width: 100px;
-        height: auto;
-    }
+.disclaimer-container h2 {
+    text-align: center;
+}
 
-    .description {
-        text-align: center;
-    }
-
-    nav {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    nav ul {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    nav ul li {
-        margin: 10px 0;
-        text-align: center;
-    }
-
-    .expertise-grid {
-        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-    }
+.disclaimer-container p {
+    text-align: justify;
 }
