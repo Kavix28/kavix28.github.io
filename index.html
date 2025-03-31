@@ -8,7 +8,7 @@
     <style>
         /* Styles for the disclaimer modal */
         .modal {
-            display: block; 
+            display: block; /* Show by default */
             position: fixed;
             z-index: 1000;
             left: 0;
@@ -24,8 +24,7 @@
             background-color: white;
             padding: 20px;
             border-radius: 8px;
-            width: 90%; /* Increased responsiveness */
-            max-width: 600px; /* Limit max width */
+            width: 50%;
             text-align: center;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
@@ -49,7 +48,7 @@
         }
         .slideshow-image {
             width: 100%;
-            height: auto; /* Ensures responsiveness */
+            height: 80%;
         }
         .prev, .next {
             cursor: pointer;
@@ -70,34 +69,6 @@
         }
         .prev:hover, .next:hover {
             background-color: rgba(0,0,0,0.8);
-        }
-
-        /* Media Queries for Responsive Design */
-        @media only screen and (max-width: 768px) {
-            .modal-content {
-                width: 90%;
-                padding: 15px;
-            }
-            .profile {
-                flex-direction: column; /* Stack elements */
-                align-items: center; /* Center in column */
-            }
-            .profile img {
-                width: 100px; /* Responsive image size */
-                height: auto;
-            }
-            .description {
-                text-align: center; /* Center text on small screens */
-            }
-            nav ul {
-                flex-direction: column; /* Stack navigation links */
-            }
-            nav ul li {
-                margin: 10px 0; /* Increased space between items */
-            }
-            .expertise-grid {
-                grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); /* Smaller expertise items */
-            }
         }
     </style>
 </head>
@@ -133,7 +104,7 @@
     </header>
 
     <main>
-        <div class="slideshow-container">
+        <div class="slideshow-container"> <!-- Added missing opening div -->
             <div class="mySlides">
                 <img src="pics/High Court.png" alt="High Court 1" class="slideshow-image">
             </div>
@@ -239,16 +210,16 @@
                 <p><i class="fas fa-map-marker-alt"></i> G224a, G Block, Karkardooma Court, Delhi-110032</p>
                 <p><i class="fas fa-map-marker-alt"></i> B-22 B.G.S Block, Tis Hazari Court, Delhi-110054</p>
                 <p><i class="fas fa-envelope"></i> Email: <a href="mailto:dhawanandassociatesadv@gmail.com">dhawanandassociatesadv@gmail.com</a></p>
-                <p><i class="fas fa-phone"></i> Mob: 9910912497 ,  8130722783</p>
+                <p><i class="fas fa-phone"></i> Mob: 9910912497 ,  8130722783  </p>
             </div>
         </section>
     </main>
 
-    <footer style="color: white;">
+    <footer style="color: White ;">
         <p>&copy; 2025 Dhawan & Associates. All rights reserved.</p>
     </footer>
     
-    <footer style="color: white;">
+    <footer style="color: White ;">
         <p>&copy; Developed by : KAVYANSH KAPOOR </p>
     </footer>
 
