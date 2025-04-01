@@ -1,254 +1,325 @@
-/* General Styles */
-body {
-    font-family: Arial, sans-serif;
-    line-height: 1.6;
-    margin: 0;
-    padding: 0;
-    background-color: #101010;
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dhawan & Associates</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Styles for the disclaimer modal */
+        .modal {
+            display: block; /* Show by default */
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .modal-content {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            width: 50%;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .close-btn {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            margin-top: 10px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        /* Styles for the slideshow */
+        .slideshow-container {
+            position: relative;
+            max-width: 100%;
+            margin: auto;
+        }
+        .mySlides {
+            display: none;
+        }
+        .slideshow-image {
+            width: 100%;
+            height: 80%;
+        }
+        .prev, .next {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            width: auto;
+            padding: 16px;
+            color: white;
+            font-weight: bold;
+            font-size: 18px;
+            transition: 0.6s ease;
+            border-radius: 0 3px 3px 0;
+            user-select: none;
+        }
+        .next {
+            right: 0;
+            border-radius: 3px 0 0 3px;
+        }
+        .prev:hover, .next:hover {
+            background-color: rgba(0,0,0,0.8);
+        }
+    </style>
+</head>
+<body>
+    <div id="disclaimer-modal" class="modal">
+        <div class="modal-content">
+            <h2>Disclaimer</h2>
+            <p>
+                As per the rules of the Bar Council of India, lawyers and law firms are not permitted to solicit work or advertise. By clicking on the "I Agree" button below, the user agrees and acknowledges that:
+            </p>
+            <ul>
+                <li>No advertisement, personal communication, or solicitation has been made on behalf of Dhawan & Associates.</li>
+                <li>The user wishes to gain more information for personal use.</li>
+                <li>The information on this website is provided solely at the user's request and does not create any lawyer-client relationship.</li>
+                <li>The website serves informational purposes only and does not guarantee comprehensive or updated information.</li>
+            </ul>
+            <button class="close-btn" onclick="closeDisclaimer()">I Agree</button>
+        </div>
+    </div>
+    
+    <header>
+        <div class="menu-btn" onclick="toggleSidebar()">
+            <div class="menu-btn__burger"></div>
+        </div>
+        <div class="logo-container">
+            <img src="pics/website.jpg" alt="DHAWAN & ASSOCIATES" class="logo">
+            <div class="logo-text" style="font-size: 18px; font-weight: bold;">DHAWAN & ASSOCIATES</div>
+        </div>
+        <nav class="desktop-nav">
+            <ul>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#expertise">Our Expertise</a></li>
+                <li><a href="#contact">Contact Us</a></li>
+            </ul>
+        </nav>
+    </header>
 
-header {
-    background: rgba(193, 137, 8, 0.2);
-    color: #5686e6;
-    padding: 20px;
-    display: flex;
-    align-items: center;
-}
+    <div class="sidebar" id="sidebar">
+        <div class="close-sidebar" onclick="toggleSidebar()">×</div>
+        <nav class="mobile-nav">
+            <ul>
+                <li><a href="#about" onclick="toggleSidebar()">About Us</a></li>
+                <li><a href="#expertise" onclick="toggleSidebar()">Our Expertise</a></li>
+                <li><a href="#contact" onclick="toggleSidebar()">Contact Us</a></li>
+            </ul>
+        </nav>
+    </div>
 
-/* Logo Section */
-.logo-container {
-    display: flex;
-    align-items: center;
-    margin-right: 20px;
-}
+    <div class="overlay-bg" id="overlay" onclick="toggleSidebar()"></div>
 
-.logo {
-    width: 100px;
-    height: 60px;
-    border-radius: 50%;
-    margin-right: 15px;
-}
+    <main>
+        <div class="slideshow-container"> <!-- Added missing opening div -->
+            <div class="mySlides">
+                <img src="pics/High Court.png" alt="High Court 1" class="slideshow-image">
+            </div>
+            <div class="mySlides">
+                <img src="pics/supreme court.webp" alt="High Court 2" class="slideshow-image">
+            </div>
+            <div class="mySlides">
+                <img src="pics/cheque.webp" alt="High Court 3" class="slideshow-image">
+            </div>
+            <div class="mySlides">
+                <img src="pics/Bail.webp" alt="High Court 4" class="slideshow-image">
+            </div>
+            <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+            <a class="next" onclick="plusSlides(1)">&#10095;</a>
+        </div>
+        
+        <section id="about">
+            <h2>About Us</h2>
 
-.logo-text {
-    font-size: 1.5em;
-    font-weight: bold;
-}
+            <div class="profile">
+                <div class="description">
+                    <h3>DHAWAN AND ASSOCIATES </h3>
+                    <p>Dhawan & Associates is a distinguished law firm based in Delhi/NCR, committed to delivering comprehensive legal and litigation services with a client-centric approach. Founded by Advocate Anjali Dhawan, who has been practicing in the Delhi High Court since 2011, and Advocate Yatin Dhawan, who has been practicing since 2021, our firm upholds a tradition of excellence, integrity, and dedication to justice. 
 
-/* Navigation */
-nav {
-    flex-grow: 1;
-}
+                    With a team of highly skilled advocates, solicitors, and legal consultants, we specialize in providing expert legal solutions across various practice areas. Our focus is on understanding the unique needs of our clients and delivering tailored legal strategies that ensure the best possible outcomes.
 
-nav ul {
-    list-style: none;
-    padding: 0;
-    display: flex;
-}
+                    At Dhawan & Associates, we take pride in our commitment to professionalism, legal expertise, and a results-driven approach that sets us apart in the legal fraternity. Our clientele includes individuals, businesses, and organizations, both nationally and internationally, who trust us for our unwavering dedication and legal acumen.</p>
+                </div>
+            </div>
 
-nav ul li {
-    margin: 0 15px;
-}
+            <div class="profile reverse ">
+                <img src="pics/anjali dhawan main .jpg" alt="Anjali Dhawan" style="width: 200px; height: auto; object-fit: cover;">
+                <div class="description">
+                    <h3>ANJALI DHAWAN</h3>
+                    <p>Advocate Anjali Dhawan is a highly esteemed legal professional with over a decade of experience in the Delhi High Court. Practicing since 2011, she has built a strong reputation for her in-depth legal expertise, strategic thinking, and client-focused approach. Her proficiency spans multiple areas of law, including civil, corporate, and criminal litigation, ensuring comprehensive legal solutions for her clients.
 
-nav ul li a {
-    color: #fff;
-    text-decoration: none;
-    font-weight: bold;
-}
+                    With a commitment to justice and an unwavering dedication to her clients, Advocate Anjali Dhawan has successfully represented individuals and businesses in complex legal matters. Her meticulous attention to detail, coupled with her ability to navigate challenging legal landscapes, has made her a trusted name in the legal fraternity.</p>
+                </div>
+            </div>
 
-nav ul li a:hover {
-    text-decoration: underline;
-}
+            <div class="profile">
+                <img src="pics/yatin dhawan.jpg" alt="Yatin Dhawan" style="width: 200px; height: auto; object-fit: cover;">
+                <div class="description">
+                    <h3>YATIN DHAWAN</h3>
+                    <p>Advocate Yatin Dhawan is a dynamic and result-oriented legal professional, practicing in the Delhi High Court since 2021. As a founding member of Dhawan & Associates, he brings fresh perspectives, modern legal strategies, and a strong analytical approach to every case he handles. His expertise covers various domains of law, including corporate disputes, civil litigation, and legal advisory services.
 
-/* Main Content */
-main {
-    width: 80%;
-    margin: 20px auto;
-    background: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
+                    With a strong commitment to upholding justice, Advocate Yatin Dhawan is dedicated to providing effective legal representation and tailored solutions for his clients. His passion for law and sharp problem-solving skills make him a valuable asset to the firm and a trusted advocate for those seeking legal guidance.</p>
+                </div>
+            </div>
+        </section>
+        
+        <section id="expertise">
+            <h2>Our Expertise</h2>
+            <div class="expertise-grid">
+                <div class="expertise-item">
+                    <img src="pics/divorce.webp" alt="Divorce Lawyer">
+                    <div class="overlay">Divorce Lawyer</div>
+                </div>
+                <div class="expertise-item">
+                    <img src="pics/criminal.webp" alt="Criminal Lawyer">
+                    <div class="overlay">Criminal Lawyer</div>
+                </div>
+                <div class="expertise-item">
+                    <img src="pics/Bail.webp" alt="Bail Lawyer">
+                    <div class="overlay">Bail Lawyer</div>
+                </div>
+                <div class="expertise-item">
+                    <img src="pics/cheque.webp" alt="Cheque Bounce">
+                    <div class="overlay">Cheque Bounce</div>
+                </div>
+                <div class="expertise-item">
+                    <img src="pics/civil.webp" alt="Civil Lawyer">
+                    <div class="overlay">Civil Lawyer</div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="contact">
+            <h2>Contact Us</h2>
+            <form id="contact-form">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+        
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+        
+                <label for="number">Number:</label>
+                <input type="tel" id="number" name="number" required>
+        
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" required></textarea>
+        
+                <button type="submit">Send Message</button>
+            </form>
+            <p id="success-message" class="success-message" style="display: none; color: green;">
+                Message sent successfully!
+            </p>
+        </section>
+        
+        <section id="address">
+            <h2>ADDRESS</h2>
+            <div class="address">
+                <p><i class="fas fa-map-marker-alt"></i> G224a, G Block, Karkardooma Court, Delhi-110032</p>
+                <p><i class="fas fa-map-marker-alt"></i> B-22 B.G.S Block, Tis Hazari Court, Delhi-110054</p>
+                <p><i class="fas fa-envelope"></i> Email: <a href="mailto:dhawanandassociatesadv@gmail.com">dhawanandassociatesadv@gmail.com</a></p>
+                <p><i class="fas fa-phone"></i> Mob: 9910912497 ,  8130722783  </p>
+            </div>
+        </section>
+    </main>
 
-section {
-    margin-bottom: 40px;
-}
+    <footer style="color: White ;">
+        <p>&copy; 2025 Dhawan & Associates. All rights reserved.</p>
+    </footer>
+    
+    <footer style="color: White ;">
+        <p>&copy; Developed by : KAVYANSH KAPOOR </p>
+    </footer>
 
-/* Profile Section */
-.profile {
-    display: flex;
-    align-items: center;
-    margin-bottom: 20px;
-}
+    <script>
+        let slideIndex = 0;
 
-.profile img {
-    width: 120px;
-    height: 120px;
-    border-radius: 50%;
-    margin-right: 20px;
-}
+        function showSlides() {
+            let slides = document.getElementsByClassName("mySlides");
+            for (let i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";  
+            }
+            slideIndex++;
+            if (slideIndex > slides.length) {slideIndex = 1}    
+            slides[slideIndex - 1].style.display = "block";  
+            setTimeout(showSlides, 3000); // Change image every 3 seconds
+        }
 
-.description {
-    flex: 1;
-}
+        function plusSlides(n) {
+            slideIndex += n;
+            let slides = document.getElementsByClassName("mySlides");
+            if (slideIndex > slides.length) {slideIndex = 1}
+            if (slideIndex < 1) {slideIndex = slides.length}
+            for (let i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";  
+            }
+            slides[slideIndex - 1].style.display = "block";  
+        }
 
-/* About Us Section */
-.about-us {
-    text-align: center;
-}
+        function closeDisclaimer() {
+            document.getElementById("disclaimer-modal").style.display = "none";
+            showSlides(); // Start the slideshow when the disclaimer is closed.
+        }
 
-/* Reverse Flex Styles */
-.reverse {
-    flex-direction: row-reverse;
-}
+        function toggleSidebar() {
+            document.getElementById('sidebar').classList.toggle('active');
+            document.getElementById('overlay').classList.toggle('active');
+            document.querySelector('.menu-btn').classList.toggle('active');
+        }
 
-/* Headings */
-h2 {
-    color: #564343;
-    border-bottom: 2px solid #333;
-    padding-bottom: 10px;
-}
+        document.getElementById("contact-form").addEventListener("submit", function(event) {
+            event.preventDefault();
 
-h3 {
-    color: #555;
-}
+            let formData = {
+                name: document.getElementById("name").value,
+                email: document.getElementById("email").value,
+                number: document.getElementById("number").value,
+                message: document.getElementById("message").value
+            };
 
-/* Expertise Section */
-#expertise {
-    text-align: center;
-    padding: 20px;
-}
+            fetch("https://formspree.io/f/mblgakba", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    "Accept": "application/json"
+                },
+                body: JSON.stringify(formData)
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.ok) {
+                    document.getElementById("success-message").style.display = "block";
+                    document.getElementById("contact-form").reset();
+                } else {
+                    alert("Something went wrong. Please try again.");
+                }
+            })
+            .catch(error => {
+                alert("Error: " + error.message);
+            });
+        });
 
-.expertise-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 20px;
-    justify-items: center;
-}
-
-.expertise-item {
-    position: relative;
-    max-width: 300px;
-    height: 200px;
-}
-
-.expertise-item img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 5px;
-}
-
-.overlay {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    background: rgba(139, 0, 0, 0.7);
-    color: white;
-    text-align: center;
-    padding: 10px 0;
-    font-size: 18px;
-    font-weight: bold;
-    border-radius: 0 0 5px 5px;
-}
-
-/* Contact Form */
-form {
-    display: flex;
-    flex-direction: column;
-}
-
-form label {
-    margin: 10px 0 5px;
-}
-
-form input,
-form textarea {
-    padding: 10px;
-    margin-bottom: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-}
-
-form button {
-    padding: 10px;
-    background: #333;
-    color: #fff;
-    border: none;
-    cursor: pointer;
-    border-radius: 4px;
-}
-
-form button:hover {
-    background: #e4dddd;
-}
-
-/* Footer */
-.footer {
-    display: flex; /* Use flexbox layout */
-    justify-content: space-between; /* Space between elements */
-    align-items: center; /* Align items vertically */
-    padding: 10px 20px; /* Add some padding */
-    background-color: #f4f4f7; /* Light background for the footer */
-    color: white; /* Change text color to white */
-}
-
-.footer-content, .footer-dev {
-    flex: 1; /* Allow both sections to grow equally */
-    color: white; /* Change text color to white */
-}
-
-.footer-dev {
-    text-align: right; /* Align the lower text to the right */
-    color: white; /* Ensure text in this section is white */
-}
-
-/* Disclaimer Section */
-#disclaimer {
-    background-color: rgba(255, 255, 255, 0.8);
-    color: #000;
-    padding: 20px;
-    border-radius: 8px;
-    margin: 20px auto;
-    width: 80%;
-    max-width: 600px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    position: relative;
-}
-
-#disclaimer h2 {
-    color: #000;
-}
-
-#disclaimer button {
-    background-color: #333;
-    color: #fff;
-    padding: 10px 15px;
-    border: none;
-    cursor: pointer;
-    border-radius: 4px;
-}
-
-#disclaimer button:hover {
-    background-color: #555;
-}
-
-/* Disclaimer Container as a Modal */
-.disclaimer-container {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: white;
-    padding: 20px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-    z-index: 1000;
-    display: none; /* Hidden by default */
-}
-
-.disclaimer-container h2 {
-    text-align: center;
-}
-
-.disclaimer-container p {
-    text-align: justify;
-}
+        // Add smooth scrolling to all navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    window.scrollTo({
+                        top: target.offsetTop - 70, // Adjust for header height
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
